@@ -1,0 +1,59 @@
+ipaddr_len:11
+temp_IP_ADDR:192.168.0.4
+---------------- Configuration --------------------------
+SamplingRate:9
+algorithmType:1
+thresholdNum:70
+offsetMode:1
+communicationMode:0
+machineNum:1
+Test mode:2
+-----------------------------------------------------------
+SD card is ready
+esp8266 is alive
+FW Version:
+to station mode
+single ok
+SSID1, PASSWORD1
+pmas123123123
+Join AP success
+IP:+CIFSR:STAIP,"192.168.0.2"
++CIFSR:STAMAC,"b4:e6:2d:67:69:3a"
+-> WiFi OK..after setup
+create tcp ok
+release tcp ok
+-> tcp socket ok..after setup
+---- Menu ----
+-------
+4. Sampling Rate(default: 100 Hz)
+6. Threshold(default: 80%)
+7. Test Mode
+8. IP Address setting
+----
+--> Enter the IP Address:
+(egg. 192.168.0.1)
+Final IP: 192.168.0.5
+ipaddr_len:11
+temp_IP_ADDR:192.168.0.5
+---------------- Configuration --------------------------
+SamplingRate:9
+algorithmType:1
+thresholdNum:70
+offsetMode:1
+communicationMode:0
+machineNum:1
+Test mode:2
+-----------------------------------------------------------
+SD card is ready
+esp8266 is alive
+FW Version:
+to station mode
+single ok
+SSID1, PASSWORD1
+pmas123123123
+Join AP success
+IP:+CIFSR:STAIP,"192.168.0.2"
++CIFSR:STAMAC,"b4:e6:2d:67:69:3a"
+-> WiFi OK..after setup
+create tcp err
+-> tcp socket nok..after setup
