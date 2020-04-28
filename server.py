@@ -1,10 +1,7 @@
 import socket, errno
 
-
-# 접속할 서버 주소입니다. 여기에서는 루프백(loopback) 인터페이스 주소 즉 localhost를 사용합니다. 
-HOST = '127.0.0.1'
-# 클라이언트 접속을 대기하는 포트 번호입니다.
-PORT = 9999
+ip = '192.168.0.3'
+port = 9002
 
 # 소켓 객체를 생성합니다. 
 # 주소 체계(address family)로 IPv4, 소켓 타입으로 TCP 사용합니다.  
@@ -19,7 +16,7 @@ server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 # HOST는 hostname, ip address, 빈 문자열 ""이 될 수 있습니다.
 # 빈 문자열이면 모든 네트워크 인터페이스로부터의 접속을 허용합니다. 
 # PORT는 1-65535 사이의 숫자를 사용할 수 있습니다.  
-server_socket.bind((HOST, PORT))
+server_socket.bind((ip, port))
 
 # 서버가 클라이언트의 접속을 허용하도록 합니다. 
 server_socket.listen()
