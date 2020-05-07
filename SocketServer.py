@@ -17,7 +17,7 @@ class myHandler(socketserver.StreamRequestHandler):
 class myApp(socketserver.TCPServer):
     def __init__(self, ip,port):
         socketserver.TCPServer.__init__(self, (ip, port), myHandler)
-        print("server address"+self.server_address)
+
         try:
             self.serve_forever()
             print("====  server forever ====")
@@ -26,6 +26,15 @@ class myApp(socketserver.TCPServer):
             self.shutdown()
 
 if __name__ == "__main__":
+    ip = '192.168.0.2'
+    port = 9002
+
+    '''
     ip = '127.0.0.1'
     port = 9999
+
+    ip = '192.169.0.2'
+    port = 9002
+
+    '''
     app = myApp(ip,port)

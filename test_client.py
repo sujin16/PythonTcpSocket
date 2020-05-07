@@ -23,11 +23,7 @@ client_socket.connect((ip, port))
 for i in range(0,10):
     # 메시지를 전송합니다.
     time.sleep(1)
-    if(i==8):
-        client_socket.sendall('\n'.encode())
-    else:
-        client_socket.sendall('asfgvdfs'.encode())
-
+    client_socket.sendall('안녕'.encode())
     if(i ==9):
         time.sleep(1)
         client_socket.sendall('finish'.encode())
