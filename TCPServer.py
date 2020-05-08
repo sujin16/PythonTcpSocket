@@ -1,36 +1,34 @@
 import socketserver
 import sys
 
-
 class TCPServer(socketserver.BaseRequestHandler):
 
-    def space_count(self,string):
-        count =0
-        for a in string:
-            if(a.isspace()) ==True:
-                count +=1
-        return str(count)
+    def __init__(self):
+        self.log =[]
+
 
     def handle(self):
-        print('client address  :{0}'.format(self.client_address[0]))
+        print('client address  :{0}\n'.format(self.client_address[0]))
         while True:
             try:
                 sock=self.request
-                buf=sock.recv(1024).strip()
-                result_str=str(buf,encoding='utf-8')
-
-                #1. sensor data 를 받아옴
-                if result_str !='':
-                    print('Received:' +result_str)
-                elif result_str =='':
-                    print('Received:' + self.space_count(result_str))
-
-
+                buf=sock.recv(1024)  #type : bytes
+                if len(buf)>0:
+                    # 1. sensor data 를 받아옴
+                    result_str=str(buf,encoding='utf-8')
+                    if result_str in 'Measure file':
+                        print('Measure')
+                    else:
+                        print(result_str) # log 기록
+                else:
+                    break
             except Exception:
-                print("exception")
                 sock.close()
-                print('socket server disconnect')
+                print('socket exception disconnect\n')
                 break
+
+        sock.close()
+        print('socket disconnect\n')
 
 
         '''
@@ -58,6 +56,8 @@ class TCPServer(socketserver.BaseRequestHandler):
 
         '''
 
+    def server_close(self):
+
 
 if __name__=='__main__':
     '''
@@ -74,4 +74,5 @@ if __name__=='__main__':
 
     server=socketserver.TCPServer((ip,port),TCPServer)
     print('start...')
+    print('server address  :{0}'.format(ip))
     server.serve_forever()

@@ -23,18 +23,24 @@ client_socket.connect((ip, port))
 for i in range(0,10):
     # 메시지를 전송합니다.
     time.sleep(1)
-    if(i==8):
-        client_socket.sendall('\n'.encode())
-    else:
-        client_socket.sendall('asfgvdfs'.encode())
+    msg = 'T:23882,1,S1:24341,S2:24342,S3:24342,S4:24343,S5:24339,S6:24342,S7:24341\n'
+    client_socket.sendall(msg.encode())
+    print('send  ' +msg)
 
     if(i ==9):
         time.sleep(1)
-        client_socket.sendall('finish'.encode())
+        msg = 'finish'
+        client_socket.sendall(msg.encode())
+        print('send  ' +msg)
 
+
+'''
 # 메시지를 수신합니다.
 data = client_socket.recv(1024)
 print('Received', repr(data.decode()))
 
+'''
+
 # 소켓을 닫습니다.
 client_socket.close()
+print('client socket close')
