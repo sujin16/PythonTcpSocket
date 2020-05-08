@@ -57,7 +57,7 @@ class TCPServer(socketserver.BaseRequestHandler):
         '''
 
     def server_close(self):
-
+        sys.exit()
 
 if __name__=='__main__':
     '''
