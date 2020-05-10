@@ -3,10 +3,6 @@ import sys
 
 class TCPServer(socketserver.BaseRequestHandler):
 
-    def __init__(self):
-        self.log =[]
-
-
     def handle(self):
         print('client address  :{0}\n'.format(self.client_address[0]))
         while True:
@@ -32,20 +28,6 @@ class TCPServer(socketserver.BaseRequestHandler):
 
 
         '''
-
-         if result_str in 'Measure file':
-                    print('Received:{0}'+result_str)
-
-                elif result_str in 'Result value':
-                    print('Received:{0}'+  result_str)
-
-                elif result_str !='':
-                    print('Received:'+ len(result_str))
-
-                elif result_str =='\n':
-                    print('Received:{0} sdf', result_str)
-
-
         #client에게 data보내기
 
         sock.send(buf)
@@ -60,6 +42,7 @@ class TCPServer(socketserver.BaseRequestHandler):
         sys.exit()
 
 if __name__=='__main__':
+
     '''
     ip = '192.168.0.2'
     port = 9002
